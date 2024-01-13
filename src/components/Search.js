@@ -1,17 +1,41 @@
 "use client";
+import { useState } from "react";
 import { IoSearch } from "react-icons/io5";
 
-export default function Search() {
+export default function Search({ name, setName, search, searchError }) {
+  // const { isError, error, data, isFetching, isPlaceholderData, isLoading } =
+  // useQuery({
+  //   queryKey: ["search"],
+  //   queryFn: async () => await fetchSingleCharacter(characterId),
+  // });
+
+  const handlesubmit = (e) => {
+    e.preventDefault();
+    search();
+  };
+
   return (
-    <form className="p-4 flex items-center ">
+    <form className="p-4 flex items-center relative" onSubmit={handlesubmit}>
+      {searchError && (
+        <p className="text-red-500 absolute text-center text-xs uppercase font-bold top-[80%]">
+          Character not found
+        </p>
+      )}
       <input
+        name="name"
+        required
         type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
         placeholder="search character"
         className="w-full outline-none bg-gray-200 p-2 rounded-l-md"
       />
-      <div className="bg-blue-500 rounded-r-md p-3 cursor-pointer">
+      <button
+        type="submit"
+        className="bg-blue-500 rounded-r-md p-3 cursor-pointer"
+      >
         <IoSearch className="text-white" />
-      </div>
+      </button>
     </form>
   );
 }
