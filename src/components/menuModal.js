@@ -8,7 +8,16 @@ export function MenuDrop({ setShow, id }) {
     <main className="relative w-full">
       <Menu>
         <Menu.Button>
-          <BsThreeDots onClick={() => setShow(true)} />
+          <BsThreeDots
+            className="hidden md:block"
+            onClick={() => setShow(true)}
+          />
+          <p
+            className="w-max font-bold md:hidden"
+            onClick={() => setShow(true)}
+          >
+            ..
+          </p>
         </Menu.Button>
         <Menu.Items>
           <Menu.Item>

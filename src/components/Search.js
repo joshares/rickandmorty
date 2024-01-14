@@ -3,19 +3,16 @@ import { useState } from "react";
 import { IoSearch } from "react-icons/io5";
 
 export default function Search({ name, setName, search, searchError }) {
-  // const { isError, error, data, isFetching, isPlaceholderData, isLoading } =
-  // useQuery({
-  //   queryKey: ["search"],
-  //   queryFn: async () => await fetchSingleCharacter(characterId),
-  // });
-
   const handlesubmit = (e) => {
     e.preventDefault();
-    search();
+    // search();
   };
 
   return (
-    <form className="p-4 flex items-center relative" onSubmit={handlesubmit}>
+    <form
+      className="p-4 flex items-center  md:text-sm text-xs"
+      onSubmit={handlesubmit}
+    >
       {searchError && (
         <p className="text-red-500 absolute text-center text-xs uppercase font-bold top-[80%]">
           Character not found
@@ -32,7 +29,7 @@ export default function Search({ name, setName, search, searchError }) {
       />
       <button
         type="submit"
-        className="bg-blue-500 rounded-r-md p-3 cursor-pointer"
+        className="bg-blue-500 rounded-r-md p-[0.65rem] md:p-3 cursor-pointer"
       >
         <IoSearch className="text-white" />
       </button>

@@ -2,15 +2,22 @@
 import { useEffect, useState } from "react";
 import Pagination from "./Pagination";
 import Search from "./Search";
-import Table from "./Table";
+import TableList from "./TableList";
 import HomeLoading from "./loaders/HomeLoading";
 import Error from "./Error";
-import { fetchCharacters, fetchSearchCharacter } from "@/hooks/useFetch";
+import { fetchCharacters } from "@/components/hooks/useFetch";
 import { keepPreviousData, useMutation, useQuery } from "@tanstack/react-query";
+import { debounce } from "lodash";
+import Table from "./Table";
 
 export default function HomePage() {
-  const [characters, setCharacters] = useState([]);
   const [name, setName] = useState("");
+  const [debouncedName, setDebouncedName] = useState("");
+  const debounceName = debounce((value) => {
+    setDebouncedName(value);
+    // setPage(1);
+    console.log(debouncedName);
+  }, 2000);
   const [page, setPage] = useState(1);
   const {
     isError,
@@ -21,39 +28,24 @@ export default function HomePage() {
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: name ? ["characters", name, page] : ["characters", page],
+    queryKey: debouncedName
+      ? ["characters", debouncedName, page]
+      : ["characters", page],
     queryFn: () => fetchCharacters(name, page),
     placeholderData: keepPreviousData,
   });
 
-  // const {
-  //   mutate: search,
-  //   isPending,
-  //   isError: searchError,
-  //   data: searchData,
-  // } = useMutation({
-  //   mutationFn: async () => await fetchSearchCharacter(name, page),
-  //   onError: (error) => {
-  //     console.log(error);
-  //   },
-  //   onSuccess: (data) => {
-  //     setCharacters(data);
-  //     console.log(data);
-  //   },
-  // });
+  const characters = data;
 
-  // const characters = name && searchData ? searchData?.results : data?.results;
-
+  // Update debouncedName when name changes
   useEffect(() => {
-    setCharacters(data);
-  }, [data]);
+    debounceName(name);
+    setPage(1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [name]);
 
   if (isLoading) {
     return <HomeLoading />;
-  }
-  if (error || isError) {
-    console.log(error);
-    return <Error message={error?.response?.data?.error} />;
   }
 
   return (
@@ -65,45 +57,12 @@ export default function HomePage() {
           search={refetch}
           searchError={""}
         />
-        <table class="w-full text-sm text-left text-black bg-white rounded-2xl">
-          <thead class="text-xs text-[#8094ae] capitalize border-b">
-            <tr>
-              <th scope="col" class="px-4 py-5">
-                #
-              </th>
-              <th scope="col" class="px-6 py-5">
-                Name
-              </th>
-              <th scope="col" class="px-3 py-5">
-                Status
-              </th>
-              <th scope="col" class="px-3 py-5">
-                Species
-              </th>
-              <th scope="col" class="px-3 py-5">
-                Type
-              </th>
-              <th scope="col" class="px-3 py-5">
-                Gender
-              </th>
-              <th scope="col" class="px-3 py-5"></th>
-            </tr>
-          </thead>
-          {characters?.results?.map((character, index) => {
-            return (
-              <Table
-                key={index}
-                character={character}
-                index={index}
-                page={page}
-              />
-            );
-          })}
-        </table>
-        <Pagination
+        <Table
           page={page}
           setPage={setPage}
-          total={characters?.info?.pages}
+          characters={characters}
+          error={error}
+          isFetching={isFetching}
         />
       </div>
     </main>

@@ -1,4 +1,7 @@
 import axios from "axios";
+import { debounce } from "lodash";
+
+// const debounceFetchedCharacters = debounce(fetchCharacters, 500);
 
 export const fetchCharacters = async (name, page) => {
   const { data } = await axios.get(

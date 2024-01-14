@@ -8,7 +8,7 @@ import { useState } from "react";
 import SinglePageLoader from "./loaders/SinglePageLoader";
 import { useRouter } from "next/router";
 import { useQuery } from "@tanstack/react-query";
-import { fetchSingleCharacter } from "@/hooks/useFetch";
+import { fetchSingleCharacter } from "@/components/hooks/useFetch";
 
 export default function SingleCharacter() {
   const router = useRouter();
