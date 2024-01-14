@@ -8,3 +8,6 @@ body {
   background-size: cover;
   background: white;
 }
+input {
+  touch-action: manipulation;
+}

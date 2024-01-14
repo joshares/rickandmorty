@@ -1,3 +1,4 @@
+"use client";
 import { Menu } from "@headlessui/react";
 import Link from "next/link";
 import { BsThreeDots } from "react-icons/bs";

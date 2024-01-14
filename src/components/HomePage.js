@@ -1,16 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
-import Pagination from "./Pagination";
 import Search from "./Search";
-import TableList from "./TableList";
 import HomeLoading from "./loaders/HomeLoading";
-import Error from "./Error";
 import { fetchCharacters } from "@/components/hooks/useFetch";
-import { keepPreviousData, useMutation, useQuery } from "@tanstack/react-query";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { debounce } from "lodash";
 import Table from "./Table";
-import TableDemo from "./TableDemo";
-import TableD from "./TableD";
 
 export default function HomePage() {
   const [name, setName] = useState("");
@@ -59,14 +54,6 @@ export default function HomePage() {
           search={refetch}
           searchError={""}
         />
-        {/* <TableD
-          page={page}
-          setPage={setPage}
-          characters={characters}
-          error={error}
-          isFetching={isFetching}
-        /> */}
-        {/* <TableDemo /> */}
         <Table
           page={page}
           setPage={setPage}
