@@ -1,40 +1,37 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+RICKY AND MORTY WEB APP
+This web application provides a comprehensive display of characters from the popular show "Rick and Morty." It is designed with a responsive layout for mobile, tablet, and laptop views. The key features and functionalities are outlined below:
 
-## Getting Started
+TABLE OF CONTENT
+Overview
+Features
+Responsive Design
+Status Representation
+Character Details
+Search Functionality
 
-First, run the development server:
+Overview
+The Ricky and Morty Web App showcases characters from the animated series, offering detailed information about each character. Users can navigate through the characters, view additional details, and search for specific characters by name.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Features
+Display of all characters from the Ricky and Morty series.
+Responsive design for mobile, tablet, and laptop views.
+Different background colors represent the status of each character.
+Access to additional details through the three dots menu for laptops.
+Clickable details for mobile users.
+Search functionality by character name.
+Responsive Design
+The application is designed to be accessible on various devices, providing an optimal user experience for mobile, tablet, and laptop users. The layout adapts seamlessly to different screen sizes, ensuring a consistent and visually appealing display.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Status Representation
+The status of each character is visually represented through distinct background colors:
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Alive: Green background color.
+Dead: Red background color.
+Unknown: Gray background color.
+This feature enhances the user experience by quickly conveying the status of each character.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Character Details
+Users can access detailed information about each character by clicking on the three dots menu for laptop users or directly on the details for mobile users. This allows users to explore additional information and gain a deeper understanding of the characters.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Search Functionality
+The application provides a search feature that enables users to find specific characters by typing their names. This functionality enhances usability, allowing users to quickly locate their favorite characters.
