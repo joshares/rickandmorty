@@ -5,7 +5,7 @@ import Link from "next/link";
 import { RxDotFilled } from "react-icons/rx";
 import MenuModal, { MenuDrop } from "./menuModal";
 
-export default function TableList({ index, page, character }) {
+export default function TableListd({ index, page, character }) {
   const [show, setShow] = useState(true);
   const [hovered, setHovered] = useState({
     name: false,
@@ -38,45 +38,8 @@ export default function TableList({ index, page, character }) {
     return firstTwoWords;
   };
   return (
-    <tbody className="text-sm md:text-sm">
-      <tr className="flex flex-col gap-2 sm:hidden  pt-10 pl-10 p-10 justify-start items-start border-b hover:bg-gray-50 relative">
-        <div className="flex gap-8 items-center">
-          <p className="text-gray-500 w-20 font-bold">#</p>
-          <p className="">{numbers() + index + 1}</p>
-        </div>
-        <div className="flex gap-8 items-center">
-          <p className="text-gray-500 w-20 font-bold">Name</p>
-          <p className="">{character?.name}</p>
-        </div>
-
-        <div className="flex gap-8 items-center w-full ">
-          <p className="text-gray-500 w-20 font-bold">Status</p>
-          <p
-            className={` font-medium text-black w-max px-2 p-1 rounded-md ${
-              character?.status === "Alive" ? "bg-green-400" : "bg-gray-400"
-            } ${character?.status === "Dead" && "bg-red-400"}`}
-          >
-            {character?.status}
-          </p>
-        </div>
-        <div className="flex gap-8 items-center ">
-          <p className="text-gray-500 w-20 font-bold">species</p>
-          <p>{character?.species} </p>
-        </div>
-        <div className="flex gap-8 items-center">
-          <p className="text-gray-500 w-20 font-bold">type</p>
-          <p>{character?.type || "Unknown"}</p>
-        </div>
-        <div className="flex gap-8 items-center">
-          <p className="text-gray-500 w-20 font-bold">gender</p>
-          <p>{character?.gender}</p>
-        </div>
-        <div className="absolute bottom-5 right-5">
-          <MenuDrop id={character?.id} setShow={setShow} />
-        </div>
-      </tr>
-
-      <tr class="hidden sm:table-row bg-white border-b hover:bg-gray-50 ">
+    <tbody className="text-[0.6rem] md:text-sm">
+      <tr class="bg-white border-b hover:bg-gray-50 ">
         <td class="px-4 py-3 md:block hidden">
           <div className="flex items-center mt-2">{numbers() + index + 1}</div>
         </td>
@@ -114,7 +77,7 @@ export default function TableList({ index, page, character }) {
           </div>
         </td>
         <td class="px-3 py-4">{character?.species}</td>
-        <td class="px-3 py-4 text-[#8094ae] text-[13px] md:whitespace-nowrap md:w-28  sm:w-14 sm:whitespace-normal overflow-hidden">
+        <td class="px-3 py-4 text-[#8094ae] text-[13px] w-14 whitespace-normal overflow-hidden">
           {character?.type || "Unknown"}
         </td>
         <td class="px-3 py-4 mt-2 md:block hidden">{character?.gender}</td>

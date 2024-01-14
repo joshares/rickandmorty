@@ -9,14 +9,14 @@ export function MenuDrop({ setShow, id }) {
       <Menu>
         <Menu.Button>
           <BsThreeDots
-            className="hidden md:block"
+            className="hidden sm:block"
             onClick={() => setShow(true)}
           />
           <p
-            className="w-max font-bold md:hidden"
+            className="w-max font-bold sm:hidden"
             onClick={() => setShow(true)}
           >
-            ..
+            view more
           </p>
         </Menu.Button>
         <Menu.Items>

@@ -21,13 +21,13 @@ export default function Table({
 
   return (
     <div>
-      <table class="w-full text-[0.5rem] md:text-sm text-left text-black bg-white rounded-2xl">
-        <thead class="md:text-xs text-[0.7rem] text-[#8094ae] capitalize border-b">
+      <table class="w-full text-sm md:text-sm text-left text-black bg-white rounded-2xl">
+        <thead class="hidden sm:table-header-group text-sm text-[#8094ae] capitalize border-b">
           <tr>
             <th scope="col" class="px-4 py-5 md:block hidden">
               #
             </th>
-            <th scope="col" class="px-6 py-5">
+            <th scope="col" class="px-2 py-5">
               Name
             </th>
             <th scope="col" class="px-3 py-5">
