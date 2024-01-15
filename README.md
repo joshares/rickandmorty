@@ -10,6 +10,7 @@ Responsive Design
 Status Representation
 Character Details
 Search Functionality
+fetching functionality
 
 OVERVIEW
 
@@ -44,3 +45,7 @@ Users can access detailed information about each character by clicking on the th
 SEARCH FUNCTIONALITY
 
 The application provides a search feature that enables users to find specific characters by typing their names. This functionality enhances usability, allowing users to quickly locate their favorite characters.
+
+FETCHING FUNCTIONALITY
+
+I used React query to fetch and handle paginations, I also used debounce from loadash to help delay the search request, to avoid too many fetch request.
