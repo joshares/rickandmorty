@@ -48,5 +48,5 @@ The application provides a search feature that enables users to find specific ch
 
 ## FETCHING FUNCTIONALITY
 
-I used React query to fetch and handle paginations, I also used debounce from loadash to help delay the search request, to avoid too many fetch request.
+I used React query to fetch and handle paginations, I also used debounce to help delay the search request, to avoid too many fetch request.
 I used skeleton loader, to show when data are fetching from server
