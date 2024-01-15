@@ -1,20 +1,17 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Search from "./Search";
 import HomeLoading from "./loaders/HomeLoading";
 import { fetchCharacters } from "@/components/hooks/useFetch";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
-import { debounce } from "lodash";
 import Table from "./Table";
+import useDebounce from "./hooks/useDebounce";
 
 export default function HomePage() {
   const [name, setName] = useState("");
-  const [debouncedName, setDebouncedName] = useState("");
-  const debounceName = debounce((value) => {
-    setDebouncedName(value);
-    // setPage(1);
-    console.log(debouncedName);
-  }, 2000);
+
+  const debouncedName = useDebounce(name, 2000);
+
   const [page, setPage] = useState(1);
   const {
     isError,
@@ -34,13 +31,6 @@ export default function HomePage() {
 
   const characters = data;
 
-  // Update debouncedName when name changes
-  useEffect(() => {
-    debounceName(name);
-    setPage(1);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [name]);
-
   if (isLoading) {
     return <HomeLoading />;
   }
@@ -51,6 +41,7 @@ export default function HomePage() {
         <Search
           name={name}
           setName={setName}
+          setPage={setPage}
           search={refetch}
           searchError={""}
         />

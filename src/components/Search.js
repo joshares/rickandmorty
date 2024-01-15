@@ -2,10 +2,21 @@
 import { useState } from "react";
 import { IoSearch } from "react-icons/io5";
 
-export default function Search({ name, setName, search, searchError }) {
+export default function Search({
+  name,
+  setName,
+  search,
+  searchError,
+  setPage,
+}) {
   const handlesubmit = (e) => {
     e.preventDefault();
     // search();
+  };
+  const handleInputChange = (e) => {
+    setName(e.target.value);
+    // setDebouncedName(e.target.value);
+    setPage(1);
   };
 
   return (
@@ -23,13 +34,13 @@ export default function Search({ name, setName, search, searchError }) {
         required
         type="text"
         value={name}
-        onChange={(e) => setName(e.target.value)}
+        onChange={handleInputChange}
         placeholder="search character"
-        className="w-full outline-none bg-gray-200 p-2 rounded-l-md"
+        className="w-full outline-none bg-gray-200 p-2 rounded-r-none rounded-l-md"
       />
       <button
         type="submit"
-        className="bg-blue-500 rounded-r-md p-[0.65rem] md:p-3 cursor-pointer"
+        className="bg-blue-500 rounded-r-md p-[0.65rem] md:p-3 cursor-pointer "
       >
         <IoSearch className="text-white" />
       </button>
